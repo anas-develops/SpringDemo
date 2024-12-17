@@ -1,0 +1,20 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="chai" class="com.netpace.Chai" autowire="byType">
+<!--        <constructor-arg name="sips" type="int" value="10"></constructor-arg>-->
+<!--        <constructor-arg name="ingredient" type="com.netpace.Ingredient" ref="leaf"></constructor-arg>-->
+<!--        <constructor-arg name="flavor" type="String" value="kava"></constructor-arg>-->
+        <property name="sips" value="10"></property>
+        <property name="flavor" value="kava"></property>
+        <property name="ingredient">
+            <bean id="ingredient1" class="com.netpace.Leaf" lazy-init="true">
+            </bean>
+
+<!--            <bean id="ingredient2" class="com.netpace.Milk" lazy-init="true" primary="true">-->
+<!--            </bean>-->
+        </property>
+    </bean>
+</beans>
